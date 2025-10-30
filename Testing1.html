@@ -1,24 +1,494 @@
-<!DOCTYPE html>
-   <html lang="id">
-   <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Nuggyuuu - Homepage</title>
-       <link rel="stylesheet" href="assets/css/style.css">
-   </head>
-   <body>
-       <!-- Navbar Section -->
-       <nav class="navbar">
-           <div class="logo">
-               <img src="assets/img/logo.png" alt="Nuggyuuu Logo">
-           </div>
-           <ul class="nav-menu">
-               <li><a href="index.html">Home</a></li>
-               <li><a href="produk.html">Produk</a></li>
-               <li><a href="kontak.html">Kontak</a></li>
-           </ul>
-       </nav>
-       <h1>Ini Lagi Coba Perubahan Baru Dari User Lain</h1>
-       <br/> Muncul Gak Tus?
-   </body>
-   </html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NUGGYUUU — Premium</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --white:#FFFFFF;
+      --yellow:#FEDE58;
+      --black:#000000;
+      --radius:10px;
+      --body-font-size:24px; /* requirement */
+      --heading-font-size:48px; /* requirement */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;background:var(--white);color:var(--black);font-family:'Inter',system-ui,Arial;line-height:1.45;font-size:var(--body-font-size);}
+    h1,h2,h3,h4,h5{font-family:'Poppins',sans-serif;margin-bottom:.5rem}
+    h1{font-size:var(--heading-font-size)}
+
+    /* NAVBAR */
+    .navbar{background:var(--yellow);box-shadow:0 8px 30px rgba(0,0,0,0.06);padding:0.6rem 1rem;border-radius:0 0 12px 12px}
+    .navbar .nav-link{color:var(--black);font-weight:600}
+    .brand{font-weight:800;letter-spacing:1px}
+    .search-input{min-width:220px}
+
+    /* Breadcrumb */
+    .breadcrumb{background:transparent;padding:0;margin-bottom:1rem}
+
+    /* HERO */
+    .hero{position:relative;border-radius:12px;overflow:hidden;padding:48px;background-image:url('https://images.unsplash.com/photo-1542444459-db2b6b13b8c9?auto=format&fit=crop&w=1600&q=60');background-size:cover;background-position:center}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.32),rgba(0,0,0,0.12));}
+    .hero-inner{position:relative;z-index:2;color:#fff}
+    .hero .logos-right img{height:50px;margin-left:8px}
+
+    /* product bar */
+    .product-bar{background:rgba(255,255,255,0.95);padding:10px;border-radius:12px;display:flex;align-items:center;gap:10px}
+    .variant{min-width:240px;padding:12px;border-radius:var(--radius);display:flex;align-items:center;gap:12px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+
+    /* Product Series */
+    .series-card{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:0 12px 30px rgba(0,0,0,0.04)}
+
+    /* Benefits */
+    .benefit{background:var(--yellow);padding:16px;border-radius:var(--radius);display:flex;gap:12px;align-items:center;font-weight:600}
+
+    /* Footer */
+    footer{background:var(--black);color:var(--white);padding:28px 0;margin-top:40px}
+    .social-circle{width:40px;height:40px;border-radius:50%;display:inline-grid;place-items:center;background:#222;color:#fff;margin-right:8px}
+
+    /* Forms */
+    .form-control{border-radius:8px}
+    .btn-yellow{background:var(--yellow);color:#000;border:none;font-weight:700;border-radius:8px}
+
+    /* Grid products - products page requires 2 columns */
+    .products-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+
+    /* General product card */
+    .prod-card{background:#fff;border-radius:var(--radius);padding:12px;box-shadow:0 8px 22px rgba(0,0,0,0.06);display:flex;flex-direction:column;height:100%}
+    .prod-card img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+
+    /* Responsive rules */
+    @media (max-width:991.98px){
+      .products-grid-2{grid-template-columns:repeat(2,1fr)}
+      .search-input{min-width:160px}
+      html,body{font-size:20px}
+    }
+    @media (max-width:575.98px){
+      .products-grid-2{grid-template-columns:1fr}
+      .search-input{display:none}
+      .hero{padding:28px}
+      html,body{font-size:18px}
+    }
+
+    /* Smooth hover effects */
+    .prod-card:hover{transform:translateY(-6px);transition:all .18s ease;box-shadow:0 18px 40px rgba(0,0,0,0.08)}
+    .nav-link:hover,.btn-outline-dark:hover{opacity:.85}
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand brand" href="#" onclick="navigate('home')">NUGGYUUU</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('home')">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('order')">Order</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('produk')">Produk</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('resep')">Resep</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('artikel')">Artikel</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('profil')">Profil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="navigate('beseller')">Be Seller</a></li>
+        </ul>
+        <form class="d-flex" role="search" onsubmit="event.preventDefault();alert('Search demo')">
+          <input class="form-control me-2 search-input" type="search" placeholder="Search..." aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-4">
+    <!-- Breadcrumb -->
+    <nav id="breadcrumbWrap" class="d-none" aria-label="breadcrumb"><ol id="breadcrumb" class="breadcrumb"></ol></nav>
+
+    <!-- HOME -->
+    <section id="home" class="mb-5">
+      <div class="hero mb-4">
+        <div class="container hero-inner">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <div><img src="https://via.placeholder.com/140x64?text=Logo" alt="logo"></div>
+            <div class="logos-right d-flex align-items-center">
+              <img src="https://via.placeholder.com/64?text=Halal" alt="halal">
+              <img src="https://via.placeholder.com/64?text=BBI" alt="bbi">
+              <img src="https://via.placeholder.com/64?text=Jujur" alt="jujur">
+            </div>
+          </div>
+
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h1>Nuggyuuu — with a nusantara flavor</h1>
+              <p style="font-size:18px;opacity:.95">Cita rasa unik dengan topping berkarakter. Pilihan nugget inovatif: siap goreng, siap santap, dengan varian lokal yang memikat.</p>
+              <div class="mt-3 d-flex gap-2">
+                <button class="btn btn-yellow" onclick="navigate('produk')">Lihat Produk</button>
+                <button class="btn btn-outline-light" onclick="navigate('order')">Pesan Sekarang</button>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="product-bar">
+                <button class="btn btn-sm btn-outline-dark" onclick="shiftVariants(-1)">&larr;</button>
+                <div id="variantWrap" class="d-flex gap-3 flex-grow-1 overflow-hidden px-2"></div>
+                <button class="btn btn-sm btn-outline-dark" onclick="shiftVariants(1)">&rarr;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Series -->
+      <div class="row g-4 mb-4">
+        <div class="col-md-6">
+          <div class="series-card">
+            <h3>Regular Series</h3>
+            <p class="mb-2 small-muted">Varian klasik dengan cita rasa Nusantara — ideal untuk keluarga dan acara santai.</p>
+            <img src="https://via.placeholder.com/520x300?text=Regular+Series" alt="regular" class="img-fluid rounded" style="border-radius:8px">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="series-card">
+            <h3>Kids Series</h3>
+            <p class="mb-2 small-muted">Varian ramah anak dengan tekstur lembut dan topping menarik yang disukai anak-anak.</p>
+            <img src="https://via.placeholder.com/520x300?text=Kids+Series" alt="kids" class="img-fluid rounded" style="border-radius:8px">
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits -->
+      <div>
+        <h3>Kenapa Nuggyuuu Berbeda?</h3>
+        <div class="row g-3 mt-2">
+          <div class="col-sm-6 col-md-4"><div class="benefit">🥇 Varian Unggulan</div></div>
+          <div class="col-sm-6 col-md-4"><div class="benefit">🧪 Inovasi Rasa</div></div>
+          <div class="col-sm-6 col-md-4"><div class="benefit">📍 Area Layanan Jabodetabek</div></div>
+          <div class="col-sm-6 col-md-4"><div class="benefit">🔥 Ready To Cook</div></div>
+          <div class="col-sm-6 col-md-4"><div class="benefit">📦 Pre-order System</div></div>
+          <div class="col-sm-6 col-md-4"><div class="benefit">✅ Kualitas Terjamin</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER -->
+    <section id="order" class="d-none mb-5">
+      <h2>Hubungi Kami</h2>
+      <p class="small-muted">Pesanan anda hampir siap! Lengkapi formulir berikut dan pesanan anda segera diproses.</p>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="series-card">
+            <form id="orderForm" onsubmit="submitOrder(event)">
+              <div class="mb-3"><label class="form-label">Nama Lengkap</label><input required class="form-control" name="name"></div>
+              <div class="mb-3"><label class="form-label">Email</label><input type="email" required class="form-control" name="email"></div>
+              <div class="mb-3"><label class="form-label">Nomor Telepon</label><input required class="form-control" name="phone"></div>
+              <div class="mb-3"><label class="form-label">Pesan / Pertanyaan</label><textarea class="form-control" rows="4" name="message"></textarea></div>
+              <div class="mb-3 form-check"><input type="checkbox" class="form-check-input" id="confirmContact" required><label class="form-check-label" for="confirmContact">Saya konfirmasi pesanan dan bersedia dihubungi via Email & WhatsApp</label></div>
+              <button class="btn btn-yellow" type="submit">Kirim Pesanan</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="series-card mb-3">
+            <h5>Hubungi Kami</h5>
+            <p class="mb-1"><strong>Lokasi:</strong> Jakarta Barat, Indonesia</p>
+            <p class="mb-1"><strong>Email:</strong> hellonuggyuuu@gmail.com</p>
+            <p class="mb-1"><strong>Telepon:</strong> 0822-9872-7971</p>
+            <p class="mb-1"><strong>Jam Operasional:</strong> 08.00 - 18.00 WIB</p>
+          </div>
+          <div class="series-card mb-3">
+            <h6>Temukan Nuggyuuu di Media Sosial</h6>
+            <div class="d-flex gap-2 mt-2">
+              <div class="social-circle">f</div>
+              <div class="social-circle">ig</div>
+              <div class="social-circle">x</div>
+              <div class="social-circle">yt</div>
+            </div>
+          </div>
+          <div class="series-card">
+            <h6>Pre-order via WhatsApp</h6>
+            <p class="small-muted">Klik tombol untuk mulai chat dan mengirim pre-order.</p>
+            <a class="btn btn-outline-dark" href="https://wa.me/6282298727971" target="_blank">Chat via WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUK -->
+    <section id="produk" class="d-none mb-5">
+      <h2>Produk</h2>
+      <p class="small-muted">Pilih Series: <span class="badge bg-light text-dark me-2">Regular</span><span class="badge bg-light text-dark">Kids</span></p>
+
+      <div id="productContainer" class="products-grid-2"></div>
+    </section>
+
+    <!-- RESEP -->
+    <section id="resep" class="d-none mb-5">
+      <h2>Resep</h2>
+      <div class="row g-4" id="resepContainer">
+        <!-- recipe items injected -->
+      </div>
+    </section>
+
+    <!-- ARTIKEL -->
+    <section id="artikel" class="d-none mb-5">
+      <h2>Artikel</h2>
+      <div class="mb-3 d-flex gap-2">
+        <button class="btn btn-outline-dark">Terbaru</button>
+        <button class="btn btn-outline-dark">Kuliner Nusantara</button>
+        <button class="btn btn-outline-dark">Rekomendasi Kuliner</button>
+        <button class="btn btn-outline-dark">Healthy Food</button>
+        <button class="btn btn-outline-dark">Cerita di Balik Rasa</button>
+      </div>
+      <div class="row g-4" id="artikelContainer"></div>
+    </section>
+
+    <!-- PROFIL -->
+    <section id="profil" class="d-none mb-5">
+      <h2>Profil Perusahaan</h2>
+      <div class="series-card">
+        <h5>Tentang Nuggyuuu</h5>
+        <p>Nuggyuuu menghadirkan nugget bercita rasa Nusantara dengan kualitas dan inovasi rasa yang terjaga. Fokus pada kepuasan pelanggan dan kemitraan berkelanjutan.</p>
+        <h6>Visi</h6>
+        <p>Menjadi ikon rasa nugget bercita Nusantara di pasar domestik dan regional.</p>
+        <h6>Misi</h6>
+        <ul>
+          <li>Menghadirkan varian rasa lokal berkualitas.</li>
+          <li>Membangun jaringan mitra distribusi.</li>
+          <li>Menjaga standar kualitas produk dan layanan.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- BE SELLER -->
+    <section id="beseller" class="d-none mb-5">
+      <h2>Jadilah bagian dari mitra kami</h2>
+      <div class="series-card mb-3">
+        <div class="badge btn-yellow mb-3">Pilih Tipe Mitra</div>
+        <div class="row g-3">
+          <div class="col-md-6"><div class="series-card">Pribadi (Individu)</div></div>
+          <div class="col-md-6"><div class="series-card">Perusahaan</div></div>
+        </div>
+        <h6 class="mt-3">Persyaratan Menjadi Mitra Usaha PT. Primafood International</h6>
+        <ol>
+          <li>Memiliki NPWP (untuk perusahaan)</li>
+          <li>Mengisi formulir resmi mitra</li>
+        </ol>
+        <h6>Persyaratan Administrasi</h6>
+        <ul>
+          <li>Fotokopi KTP/Paspor</li>
+          <li>Surat perjanjian</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Nuggyuuu: with a nusantara flavor</h5>
+          <p class="small-muted">Cita rasa unik dengan topping unik dan berkarakter untuk masyarakat Indonesia.</p>
+          <p><strong>Brand:</strong> Mayo Chili Nugget, Mayo Seaweed Nugget, Mayo Onion Nugget</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="list-unstyled small-muted">
+            <li><a href="#" onclick="navigate('home')">Beranda</a></li>
+            <li><a href="#" onclick="navigate('order')">Order</a></li>
+            <li><a href="#" onclick="navigate('produk')">Produk</a></li>
+            <li><a href="#" onclick="navigate('resep')">Resep</a></li>
+            <li><a href="#" onclick="navigate('artikel')">Artikel</a></li>
+            <li><a href="#" onclick="navigate('profil')">Profil</a></li>
+            <li><a href="#" onclick="navigate('beseller')">Be Seller</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6>Contact</h6>
+          <p class="small-muted mb-0">Jakarta Barat, Indonesia</p>
+          <p class="small-muted mb-0">Email: hellonuggyuuu@gmail.com</p>
+          <p class="small-muted mb-0">WA: 0822-9872-7971</p>
+          <div class="mt-2">
+            <span class="social-circle">f</span>
+            <span class="social-circle">ig</span>
+            <span class="social-circle">x</span>
+            <span class="social-circle">yt</span>
+          </div>
+        </div>
+      </div>
+      <hr style="border-color:#555">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>© 2025 Nuggyuuu. All Rights Reserved</div>
+        <div><strong>Created by Group 6 | Project Based Learning</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Data
+    const variants = [
+      {name:'Mayo Chili Nugget', img:'https://via.placeholder.com/120?text=Chili'},
+      {name:'Mayo Seaweed Nugget', img:'https://via.placeholder.com/120?text=Seaweed'},
+      {name:'Mayo Onion Nugget', img:'https://via.placeholder.com/120?text=Onion'}
+    ];
+
+    const products = Array.from({length:20}).map((_,i)=>({
+      id:i+1,
+      series: i%2==0? 'Regular':'Kids',
+      name:`Nuggyuuu Variant ${i+1}`,
+      price: (32000 + i*1000),
+      rating: (4 + (i%2)*0.5).toFixed(1),
+      flavor: i%3==0? 'Pedas' : 'Populer',
+      img: 'https://via.placeholder.com/640x400?text=Product+'+(i+1),
+      desc: 'Deskripsi singkat varian nugget yang lezat dan cocok untuk segala suasana.'
+    }));
+
+    const recipes = Array.from({length:10}).map((_,i)=>({
+      id:i+1,
+      title:`Resep Nugget Kreasi ${i+1}`,
+      img:`https://via.placeholder.com/520x320?text=Resep+${i+1}`,
+      date:'12 Mei 2025',
+      read:'5 min read'
+    }));
+
+    const articles = Array.from({length:10}).map((_,i)=>({
+      id:i+1,
+      title:`Artikel Kuliner ${i+1}`,
+      img:`https://via.placeholder.com/520x320?text=Artikel+${i+1}`,
+      excerpt:'Ringkasan singkat artikel mengenai jejak rasa dan inovasi topping.'
+    }));
+
+    // Init
+    document.addEventListener('DOMContentLoaded',()=>{
+      renderVariants();
+      renderProducts();
+      renderRecipes();
+      renderArticles();
+      navigate('home');
+    });
+
+    // Navigation
+    function navigate(page){
+      const sections = document.querySelectorAll('main section');
+      sections.forEach(s=>s.classList.add('d-none'));
+      const target = document.getElementById(page);
+      if(target) target.classList.remove('d-none');
+      updateBreadcrumb(page);
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    function updateBreadcrumb(page){
+      const breadcrumbWrap = document.getElementById('breadcrumbWrap');
+      const breadcrumb = document.getElementById('breadcrumb');
+      breadcrumb.innerHTML = '';
+      if(page === 'home'){
+        breadcrumbWrap.classList.add('d-none');
+      } else {
+        breadcrumbWrap.classList.remove('d-none');
+        const items = ['Beranda', page.charAt(0).toUpperCase() + page.slice(1)];
+        items.forEach((it,idx)=>{
+          const li = document.createElement('li');
+          li.className = 'breadcrumb-item' + (idx===items.length-1? ' active':'');
+          if(idx===items.length-1){ li.setAttribute('aria-current','page'); li.innerText = it; }
+          else { const a=document.createElement('a'); a.href='#'; a.innerText=it; a.onclick=()=>navigate('home'); li.appendChild(a);} 
+          breadcrumb.appendChild(li);
+        });
+      }
+    }
+
+    // Variants bar
+    function renderVariants(){
+      const wrap = document.getElementById('variantWrap');
+      wrap.innerHTML = '';
+      variants.forEach(v=>{
+        const el = document.createElement('div');
+        el.className = 'variant';
+        el.innerHTML = `<img src='${v.img}' alt='' style='width:76px;height:76px;object-fit:cover;border-radius:8px'><div><strong style='font-size:18px'>${v.name}</strong><div style='opacity:.8;font-size:14px'>Coba sekarang</div></div>`;
+        wrap.appendChild(el);
+      });
+    }
+
+    function shiftVariants(dir){
+      const wrap = document.getElementById('variantWrap');
+      if(dir===1){ wrap.appendChild(wrap.firstElementChild); } else { wrap.insertBefore(wrap.lastElementChild, wrap.firstElementChild); }
+    }
+
+    // Products
+    function renderProducts(){
+      const container = document.getElementById('productContainer');
+      container.innerHTML = '';
+      products.forEach(p=>{
+        const el = document.createElement('div');
+        el.className = 'prod-card';
+        el.innerHTML = `
+          <img src='${p.img}' alt='${p.name}'>
+          <div style='padding-top:10px;flex:1;display:flex;flex-direction:column'>
+            <div style='display:flex;justify-content:space-between;align-items:center'>
+              <h5 style='margin:0;font-size:20px'>${p.name}</h5>
+              <div style='font-weight:700'>Rp${p.price.toLocaleString()}</div>
+            </div>
+            <div class='small-muted' style='margin-top:6px'>${p.series} • ${p.flavor} • ⭐ ${p.rating}</div>
+            <p class='small-muted' style='margin-top:10px'>${p.desc}</p>
+            <div class='mt-3 d-flex gap-2'>
+              <button class='btn btn-outline-dark btn-sm' onclick='viewProduct(${p.id})'>Lihat</button>
+              <button class='btn btn-yellow btn-sm' onclick='addToCart(${p.id})'>Tambah</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(el);
+      });
+    }
+
+    function viewProduct(id){
+      const p = products.find(x=>x.id===id);
+      if(p) alert(`${p.name}\nRp${p.price.toLocaleString()}\n${p.desc}`);
+    }
+    function addToCart(id){
+      const p = products.find(x=>x.id===id);
+      if(p) alert(`${p.name} ditambahkan ke keranjang (demo)`);
+    }
+
+    // Recipes
+    function renderRecipes(){
+      const container = document.getElementById('resepContainer');
+      container.innerHTML = '';
+      recipes.forEach(r=>{
+        const col = document.createElement('div');
+        col.className = 'col-lg-6';
+        col.innerHTML = `<div class='series-card d-flex gap-3'><img src='${r.img}' alt='' style='width:160px;height:120px;object-fit:cover;border-radius:8px'><div><h5 style='margin:0'>${r.title}</h5><div class='small-muted'>${r.date} • ${r.read}</div></div></div>`;
+        container.appendChild(col);
+      });
+    }
+
+    // Articles
+    function renderArticles(){
+      const container = document.getElementById('artikelContainer');
+      container.innerHTML = '';
+      articles.forEach(a=>{
+        const col = document.createElement('div');
+        col.className = 'col-lg-6';
+        col.innerHTML = `<div class='series-card'><img src='${a.img}' alt='' class='img-fluid rounded mb-2' style='height:180px;object-fit:cover'><h5>${a.title}</h5><p class='small-muted'>${a.excerpt}</p></div>`;
+        container.appendChild(col);
+      });
+    }
+
+    // Order form handling
+    function submitOrder(e){
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      // Demo alert
+      alert('Terima kasih! Pesanan Anda akan segera diproses. (Demo)');
+      form.reset();
+    }
+  </script>
+</body>
+</html>
