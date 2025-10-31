@@ -43,7 +43,7 @@
             padding: 1rem 2rem;
             box-shadow: 0 4px 20px rgba(254, 222, 88, 0.3);
             backdrop-filter: blur(10px);
-            position: relative;
+            position: sticky;
             z-index: 1000;
         }
 
@@ -271,7 +271,7 @@
         }
 
         .variant-card {
-            text-align: center;
+            text-align: center; 
             padding: 3rem;
             border-radius: 25px;
             transition: all 0.5s ease;
@@ -311,6 +311,35 @@
 
         .variant-card:hover .variant-icon {
             transform: rotateY(360deg) scale(1.2);
+        }
+
+        .variant-icon {
+             width: 100%;
+             height: 100%; 
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             overflow: hidden;
+        }
+
+        .variant-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 5px 5px 5px 5px; 
+        }
+
+        .variant-card:hover .variant-icon img {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .variant-card h4 {
+            min-height: 48px; 
+            line-height: 1.4;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
         /* Brand Advantages - Card Style */
@@ -997,8 +1026,8 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 hero-content">
-                        <h1>Nugget Premium Untuk Keluarga Indonesia</h1>
-                        <p>Dibuat dari bahan pilihan berkualitas tinggi, tanpa pengawet, dan penuh gizi untuk keluarga tercinta. Kualitas terjamin dengan teknologi produksi modern.</p>
+                        <h1>Nugget Premium Khas Nusantara</h1>
+                        <p>Nuggyuuu hadir dari keinginan untuk menghadirkan cemilan nugget ayam yang lebih menarik, variatif, dan sesuai dengan selera anak muda masa kini. </p>
                         <button class="btn btn-cta" onclick="showPage('product')">
                             <span style="position: relative; z-index: 1;">Lihat Produk</span>
                         </button>
@@ -1016,25 +1045,32 @@
             <div class="container">
                 <h2 class="section-title">Varian Produk Kami</h2>
                 <div class="row">
+                    <!-- Varian 1: Mayo Chili Nugget  -->
                     <div class="col-md-4 mb-4">
                         <div class="variant-card">
-                            <div class="variant-icon"> K"</div>
-                            <h4>Mayo Chili Nugget</h4>
-                            <p>Lembut, gurih, dan kaya protein dari daging ayam pilihan berkualitas premium</p>
+                            <div class="variant-icon">
+                                <img src="Assets/Mayo Chili Nugget.jpg" alt="Gambar Chili Nugget">
+                            </div>
+                            <h4><b>Mayo Chili Nugget</b></h4>
+                            <p>Nugget ayam renyah berpadu saus mayo pedas creamy, menghadirkan sensasi pedas</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="variant-card">
-                            <div class="variant-icon">🐟</div>
-                            <h4>Mayo Seaweed Nugget</h4>
-                            <p>Kaya omega-3 dari ikan segar berkualitas premium untuk kesehatan keluarga</p>
+                            <div class="variant-icon">
+                                <img src="Assets/Mayo Seaweed Nugget.jpg" alt="Gambar Seaweed Nugget">
+                            </div>
+                            <h4><b>Mayo Seaweed Nugget</b></h4>
+                            <p>Kombinasi ayam gurih dan aroma rumput laut, disajikan dengan nuansa hijau lembut</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="variant-card">
-                            <div class="variant-icon">🥦</div>
-                            <h4>Mayo Onion Nugget</h4>
-                            <p>Pilihan sehat dengan kombinasi sayuran segar bergizi tinggi</p>
+                            <div class="variant-icon">
+                                <img src="Assets/Mayo Onion Nugget.jpg" alt="Gambar Onion Nugget">
+                            </div>
+                            <h4><b>Mayo Onion Nugget</b></h4>
+                            <p>Topping bawang goreng dan mayo gurih, menonjolkan cita rasa khas Nusantara</p>
                         </div>
                     </div>
                 </div>
@@ -1126,16 +1162,16 @@
                 <div class="card product-card" data-category="ayam">
                     <span class="product-badge">Best Seller</span>
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=500" alt="Nugget Ayam Original">
+                        <img src="Assets/Mayo Chili Nugget.jpg" alt="Gambar Chili">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Nugget Ayam Original</h5>
+                        <h5 class="card-title">Mayo Chili Nugget</h5>
                         <div class="product-rating">
                             ⭐⭐⭐⭐⭐ (4.8/5)
                         </div>
-                        <p class="card-text">Nugget ayam klasik dengan rasa gurih dan tekstur lembut yang disukai semua keluarga</p>
+                        <p class="card-text">Nugget ayam renyah berpadu saus mayo pedas creamy, menghadirkan sensasi gurih pedas</p>
                         <div class="product-price">Rp 35.000</div>
-                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget Ayam Original', 'https://images.unsplash.com/photo-1562967914-608f82629710?w=500', 'Rp 35.000', 'Nugget ayam premium dengan daging ayam pilihan 100%. Kaya protein, rendah lemak, tanpa pengawet. Berat: 250g, Isi: 12-15 pcs')">
+                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Mayo Chili Nugget')">
                             <span style="position: relative; z-index: 1;">Lihat Detail</span>
                         </button>
                     </div>
@@ -1145,16 +1181,16 @@
                 <div class="card product-card" data-category="ayam">
                     <span class="product-badge">Hot</span>
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1606755962773-d324e2a3d89f?w=500" alt="Nugget Ayam Pedas">
+                        <img src="Assets/Mayo Seaweed Nugget.jpg" alt="Gambar Seaweed">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Nugget Ayam Pedas</h5>
+                        <h5 class="card-title">Mayo Seaweed Nugget</h5>
                         <div class="product-rating">
                             ⭐⭐⭐⭐⭐ (4.7/5)
                         </div>
-                        <p class="card-text">Varian pedas untuk pecinta rasa yang menantang dengan cabai pilihan</p>
+                        <p class="card-text">Kombinasi ayam gurih dan aroma rumput laut, disajikan dengan nuansa hijau lembut memberi kesan segar dan natural.</p>
                         <div class="product-price">Rp 37.000</div>
-                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget Ayam Pedas', 'https://images.unsplash.com/photo-1606755962773-d324e2a3d89f?w=500', 'Rp 37.000', 'Nugget ayam dengan bumbu pedas level medium. Cocok untuk yang suka tantangan rasa. Berat: 250g, Isi: 12-15 pcs, Level Pedas: 🌶️🌶️🌶️')">
+                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Mayo Seaweed Nugget')">
                             <span style="position: relative; z-index: 1;">Lihat Detail</span>
                         </button>
                     </div>
@@ -1164,16 +1200,16 @@
                 <div class="card product-card" data-category="ayam">
                     <span class="product-badge">Premium</span>
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1619881591177-9b5f1c9e8c3d?w=500" alt="Nugget Ayam Keju">
+                        <img src="Assets/Mayo Onion Nugget.jpg" alt="Gambar Onion">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Nugget Ayam Keju</h5>
+                        <h5 class="card-title">Mayo Onion Nugget</h5>
                         <div class="product-rating">
                             ⭐⭐⭐⭐⭐ (4.9/5)
                         </div>
-                        <p class="card-text">Dipadukan dengan keju mozarella yang meleleh di dalam</p>
+                        <p class="card-text">Topping bawang goreng dan mayo gurih, menonjolkan cita rasa khas Nusantara dengan tampilan warna keemasan.</p>
                         <div class="product-price">Rp 42.000</div>
-                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget Ayam Keju', 'https://images.unsplash.com/photo-1619881591177-9b5f1c9e8c3d?w=500', 'Rp 42.000', 'Nugget ayam premium dengan keju mozarella asli di dalamnya. Favorit anak-anak! Berat: 250g, Isi: 10-12 pcs, Keju: Mozarella 100%')">
+                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Mayo Onion Nugget')">
                             <span style="position: relative; z-index: 1;">Lihat Detail</span>
                         </button>
                     </div>
@@ -1183,16 +1219,16 @@
                 <div class="card product-card" data-category="seafood">
                     <span class="product-badge">Healthy</span>
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1580959296969-c52f703a3c5c?w=500" alt="Nugget Ikan Tuna">
+                        <img src="Assets/Mayo Shrimp Roll Nugget.jpg" alt="Nugget Ikan Tuna">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Nugget Ikan Tuna</h5>
+                        <h5 class="card-title">Mayo Tuna Fish</h5>
                         <div class="product-rating">
                             ⭐⭐⭐⭐⭐ (4.6/5)
                         </div>
                         <p class="card-text">Kaya omega-3 dari ikan tuna segar pilihan untuk kecerdasan anak</p>
                         <div class="product-price">Rp 40.000</div>
-                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget Ikan Tuna', 'https://images.unsplash.com/photo-1580959296969-c52f703a3c5c?w=500', 'Rp 40.000', 'Nugget ikan tuna kaya omega-3 untuk perkembangan otak anak. Berat: 250g, Isi: 12-15 pcs, Kandungan: Tinggi Omega-3')">
+                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget isi Ikan Tuna')">
                             <span style="position: relative; z-index: 1;">Lihat Detail</span>
                         </button>
                     </div>
@@ -1202,16 +1238,16 @@
                 <div class="card product-card" data-category="seafood">
                     <span class="product-badge">Premium</span>
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1559604638-c5be34d58cd8?w=500" alt="Nugget Udang">
+                        <img src="Assets/Mayo Shrimp Roll Nugget.jpg" alt="Nugget Udang">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Nugget Udang</h5>
+                        <h5 class="card-title">Mayo Shrimp Roll Nugget</h5>
                         <div class="product-rating">
                             ⭐⭐⭐⭐⭐ (4.8/5)
                         </div>
                         <p class="card-text">Udang segar dengan tekstur renyah di luar dan lembut di dalam</p>
                         <div class="product-price">Rp 45.000</div>
-                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget Udang', 'https://images.unsplash.com/photo-1559604638-c5be34d58cd8?w=500', 'Rp 45.000', 'Nugget udang premium dengan udang segar pilihan. Renyah di luar, lembut di dalam. Berat: 250g, Isi: 10-12 pcs')">
+                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget isi Udang')">
                             <span style="position: relative; z-index: 1;">Lihat Detail</span>
                         </button>
                     </div>
@@ -1221,16 +1257,16 @@
                 <div class="card product-card" data-category="sayur">
                     <span class="product-badge">Healthy</span>
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500" alt="Nugget Sayur Mix">
+                        <img src="Assets/Mayo Vegetarian Nugget.jpg" alt="Nugget Sayur Mix">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Nugget Sayur Mix</h5>
+                        <h5 class="card-title">Mayo Vegetarian Nugget</h5>
                         <div class="product-rating">
                             ⭐⭐⭐⭐⭐ (4.5/5)
                         </div>
                         <p class="card-text">Kombinasi wortel, brokoli, dan jagung manis untuk menu sehat</p>
                         <div class="product-price">Rp 33.000</div>
-                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget Sayur Mix', 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500', 'Rp 33.000', 'Nugget sayuran dengan kombinasi wortel, brokoli, jagung. Kaya serat dan vitamin. Berat: 250g, Isi: 12-15 pcs, 100% Sayuran Segar')">
+                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget isi Sayur')">
                             <span style="position: relative; z-index: 1;">Lihat Detail</span>
                         </button>
                     </div>
@@ -1239,16 +1275,16 @@
                 <!-- Product 7 -->
                 <div class="card product-card" data-category="sayur">
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1447078806655-40579c2520d6?w=500" alt="Nugget Ayam Wortel">
+                        <img src="Assets/Mayo Carrot Nugget.jpg" alt="Nugget Ayam Wortel">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Nugget Ayam Wortel</h5>
+                        <h5 class="card-title">Mayo Carrot Nugget</h5>
                         <div class="product-rating">
                             ⭐⭐⭐⭐⭐ (4.7/5)
                         </div>
                         <p class="card-text">Kombinasi ayam dengan wortel segar bergizi tinggi</p>
                         <div class="product-price">Rp 36.000</div>
-                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget Ayam Wortel', 'https://images.unsplash.com/photo-1447078806655-40579c2520d6?w=500', 'Rp 36.000', 'Nugget kombinasi ayam dan wortel. Kaya vitamin A untuk kesehatan mata. Berat: 250g, Isi: 12-15 pcs')">
+                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget isi Wortel')">
                             <span style="position: relative; z-index: 1;">Lihat Detail</span>
                         </button>
                     </div>
@@ -1257,16 +1293,16 @@
                 <!-- Product 8 -->
                 <div class="card product-card" data-category="sayur">
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=500" alt="Nugget Ayam Jagung">
+                        <img src="Assets/Mayo Corn Nugget.jpg" alt="Nugget Ayam Jagung">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Nugget Ayam Jagung</h5>
+                        <h5 class="card-title">Mayo Corn Nugget</h5>
                         <div class="product-rating">
                             ⭐⭐⭐⭐⭐ (4.6/5)
                         </div>
                         <p class="card-text">Manis alami dari jagung manis pilihan berkualitas premium</p>
                         <div class="product-price">Rp 36.000</div>
-                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget Ayam Jagung', 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=500', 'Rp 36.000', 'Nugget ayam dengan jagung manis asli. Rasa manis alami yang disukai anak-anak. Berat: 250g, Isi: 12-15 pcs')">
+                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Mayo Cor Nugget')">
                             <span style="position: relative; z-index: 1;">Lihat Detail</span>
                         </button>
                     </div>
@@ -1276,16 +1312,16 @@
                 <div class="card product-card" data-category="ayam">
                     <span class="product-badge">New</span>
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500" alt="Nugget Ayam Smokey">
+                        <img src="Assets/Mayo Smokey Nugget.jpg" alt="Nugget Ayam Smokey">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Nugget Ayam Smokey</h5>
+                        <h5 class="card-title">Mayo Smokey Nugget</h5>
                         <div class="product-rating">
                             ⭐⭐⭐⭐⭐ (4.8/5)
                         </div>
                         <p class="card-text">Rasa smokey yang khas dan menggugah selera dengan teknik modern</p>
                         <div class="product-price">Rp 38.000</div>
-                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Nugget Ayam Smokey', 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500', 'Rp 38.000', 'Nugget ayam dengan rasa smokey khas BBQ. Teknologi asap modern tanpa bahan kimia. Berat: 250g, Isi: 12-15 pcs')">
+                        <button class="btn btn-cta w-100 mt-3" onclick="showProductDetail('Mayo Smokey Nugget')">
                             <span style="position: relative; z-index: 1;">Lihat Detail</span>
                         </button>
                     </div>
@@ -1704,7 +1740,7 @@
                 </div>
                 
                 <div class="col-md-4 footer-section">
-                    <h5>Link Cepat</h5>
+                    <h5>Quick Link</h5>
                     <a href="#" onclick="showPage('home')" class="footer-link">Home</a>
                     <a href="#" onclick="showPage('product')" class="footer-link">Product</a>
                     <a href="#" onclick="showPage('recipe')" class="footer-link">Recipe</a>
@@ -1713,7 +1749,7 @@
                 </div>
                 
                 <div class="col-md-4 footer-section">
-                    <h5>Kontak</h5>
+                    <h5>Contact</h5>
                     <p><i class="fas fa-map-marker-alt"></i> Jl. Nugget Raya No. 123, Jakarta Utara</p>
                     <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
                     <p><i class="fas fa-envelope"></i> info@nuggyuuu.com</p>
@@ -1766,6 +1802,25 @@
             } else {
                 searchBar.style.display = 'none';
             }
+        }
+
+        // Redirect saat mengetik di Search Input
+        const searchInput = document.getElementById('searchInput');
+
+        if (searchInput) {
+            searchInput.addEventListener('keyup', function (event) {
+                const query = event.target.value.toLowerCase();
+
+                // Ketika tekan Enter
+                if (event.key === 'Enter') {
+                    if (query.includes('nugget') || query.includes('ayam')) {
+                        // Arahkan ke halaman Product
+                        window.location.href = 'product.html';
+                      } else {
+                        alert('Produk tidak ditemukan. Coba kata lain.');
+                      }
+                    }
+                });
         }
 
         // Search Content
